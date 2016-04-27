@@ -1,0 +1,86 @@
+package:
+  name: blaze
+  version: "0.10.0"
+
+source:
+  fn: blaze-0.10.0.tar.gz
+  url: https://pypi.python.org/packages/4f/34/9f180673047a8bb63b6dbd9e4f633c6c6a366f9da153f985144b4a7bc3d9/blaze-0.10.0.tar.gz
+  md5: 61c38391f9e27a994f48fac9515a91ab
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - blaze = blaze:main
+    #
+    # Would create an entry point called blaze that calls blaze.main()
+
+    - blaze-server = blaze.server.spider:_main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - flask >=0.10.1
+    - flask-cors
+    - odo >=0.4.0
+    - psutil
+    - sqlalchemy >=0.8.0
+    - toolz
+    - contextlib2
+    - pyyaml
+    - requests
+
+  run:
+    - python
+    - flask >=0.10.1
+    - flask-cors
+    - odo >=0.4.0
+    - psutil
+    - sqlalchemy >=0.8.0
+    - toolz
+    - contextlib2
+    - pyyaml
+    - requests
+
+test:
+  # Python imports
+  imports:
+    - blaze
+    - blaze.compute
+    - blaze.expr
+    - blaze.server
+    - blaze.server.tests
+    - blaze.tests
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - blaze-server --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  #home: The package home page
+  license: BSD License
+  summary: 'Blaze'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
