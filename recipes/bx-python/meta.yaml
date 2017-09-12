@@ -1,11 +1,11 @@
 package:
   name: bx-python
-  version: '0.7.3'
+  version: '0.7.4'
 
 source:
-  fn: bx-python-0.7.3.tar.gz
-  url: https://pypi.python.org/packages/source/b/bx-python/bx-python-0.7.3.tar.gz
-  md5: d8c50c01c9e421bae0bbdbfa00fef6e4
+  fn: bx-python-0.7.4.tar.gz
+  url: https://github.com/bxlab/bx-python/archive/v0.7.4.tar.gz
+  md5: a47b8cc55c104ac97440c6cc62be8697
 
 build:
   number: 1
